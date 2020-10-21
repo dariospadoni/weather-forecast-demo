@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when it is not selected 1`] = `
+<div>
+  <article
+    class="forecast__card "
+  >
+    <div
+      class="forecast__card__time"
+    >
+      18:00
+    </div>
+    <div
+      class="forecast__card__condition"
+    >
+      <svg>
+        weather-sun.svg
+      </svg>
+    </div>
+    <div
+      class="forecast__card__temperature"
+    >
+      21°
+    </div>
+  </article>
+</div>
+`;
+
+exports[`renders correctly when selected 1`] = `
+<div>
+  <article
+    class="forecast__card forecast--active"
+  >
+    <div
+      class="forecast__card__time"
+    >
+      18:00
+    </div>
+    <div
+      class="forecast__card__condition"
+    >
+      <svg>
+        weather-sun.svg
+      </svg>
+    </div>
+    <div
+      class="forecast__card__temperature"
+    >
+      21°
+    </div>
+  </article>
+</div>
+`;
