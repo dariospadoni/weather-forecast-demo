@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Forecast from './components/Forecast/Forecast';
+import ForecastCard from './components/ForecastCard/ForecastCard';
 import Summary from './components/Summary/Summary';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import './App.css';
@@ -54,7 +54,7 @@ function App() {
         <ul className="forecastsList">
           {forecasts.map((d) =>
             <li key={d.dt} onClick={() => selectForecast(d)}  > 
-              <Forecast
+              <ForecastCard
                 selected={selectedForecast === d.dt}
                 temperature={d.main.temp}
                 date={new Date(d.dt_txt)} 
