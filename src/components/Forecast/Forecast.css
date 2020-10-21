@@ -1,0 +1,47 @@
+.forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 0 24px;
+  margin-right: 24px;
+  border-radius: 6px;
+}
+
+.forecast:hover, .forecast.active {
+  background-color: #51557A;
+}
+
+.forecast:hover {
+  cursor: pointer;
+}
+
+.forecast .time {
+  color: #A8AABD;
+  font-size: 48px;
+  line-height: 56px;
+  padding-top: 32px;
+  align-items: center;
+  text-align: center;
+}
+
+.forecast .condition {
+  padding-top: 32px;
+}
+
+.forecast .condition svg {
+  width: 120px;
+  height: 120px;
+}
+
+.forecast .temperature {
+  font-weight: 700;
+  font-size: 82px;
+  line-height: 96px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  padding-top: 32px;
+  align-items: center;
+  text-align: center;
+}

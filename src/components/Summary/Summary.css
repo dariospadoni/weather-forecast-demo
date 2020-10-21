@@ -1,0 +1,80 @@
+.summary {
+  display: flex;
+  color: white;
+  padding: 0 48px;
+  flex-flow: row wrap;
+}
+
+.summary .icon svg { 
+  width: 328px; 
+  height: 328px;
+}
+
+.summary .temperature {
+  margin-top: 32px;
+  font-weight: 700;
+  font-size: 246px;
+  line-height: 256px;
+  text-align: center;
+}
+
+.summary .overline {
+  color: #A8AABD;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.summary .condition {
+  padding-right: 140px;
+  min-width: 400px;
+}
+
+.summary .condition .overline {
+  justify-content: space-between;
+  display: flex;
+}
+
+.summary .icon {
+  padding-right: 140px;
+}
+
+.summary .date {
+  margin-top: 32px;
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 128px;
+}
+
+@media (max-width: 1680px) { 
+  .summary .condition, .summary .icon {
+    padding-right: 100px;
+  }
+  .summary .condition {
+    min-width: 360px;
+  }
+}
+
+@media (max-width: 1550px) { 
+  .summary .city {
+    margin-top: 48px;
+  }
+}
+
+@media (max-width: 1000px) { 
+  .summary {
+    align-items: center;
+    flex-direction: column;
+  }
+  .summary .condition, .summary .icon {
+    padding-right: 0;
+  }
+  .summary .condition {
+    margin-top: 48px;
+  }
+}
+
+@media (max-width: 640px) { 
+  .summary {
+    padding: 0 12px; 
+  }
+}
