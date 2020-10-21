@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Forecast from './components/Forecast/Forecast';
 import Summary from './components/Summary/Summary';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import './App.css';
 
 /* using some public proxy to avoid CORS issues */
 const WEATHER_DATA_URL = 'https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/forecast?q=M%C3%BCnchen,DE&appid=b6907d289e10d714a6e88b30761fae22';
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [city, setCity] = useState({});
   const [forecasts, setForecasts] = useState([]);
   const [summary, setSummary] = useState();
@@ -24,6 +26,7 @@ function App() {
   const selectForecast = data => {
     setSelectedForecast(data.dt);
     setSummary(extractSummary(data));
+    // smoothly scroll to top (useful for small screens)
     document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -35,23 +38,33 @@ function App() {
         setForecasts(data.list);
         setSelectedForecast(data.list[0].dt);
         setSummary(extractSummary(data.list[0]));
+        setLoading(false);
       });
   }, []);
 
   return (
     <div className="App">
-        {summary && <Summary weather={summary} cityName={city.name} />}
+
+      {loading && <LoadingSpinner />}
+
+      {!loading && <>
+        
+        <Summary weather={summary} cityName={city.name} />
+        
         <ul className="forecastsList">
           {forecasts.map((d) =>
-          <li key={d.dt} onClick={() => selectForecast(d)}  > 
-            <Forecast
-              selected={selectedForecast === d.dt}
-              temperature={d.main.temp}
-              date={new Date(d.dt_txt)} 
-              icon={d.weather[0].icon} 
-            />
-          </li>)} 
+            <li key={d.dt} onClick={() => selectForecast(d)}  > 
+              <Forecast
+                selected={selectedForecast === d.dt}
+                temperature={d.main.temp}
+                date={new Date(d.dt_txt)} 
+                icon={d.weather[0].icon} 
+              />
+            </li>)
+          }
         </ul>
+      </>}
+
     </div>
   );
 }

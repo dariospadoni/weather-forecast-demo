@@ -1,20 +1,20 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import './Summary.css';
-import getIcon from '../Icons';
+import './Summary.scss';
+import getIcon from '../WeatherIcons';
 import { toCelsius } from '../../utils';
 
 
 const Summary = ({ weather, cityName }) => {
   const date = moment(weather.date);
   return (
-    <main className="summary">
-      <div className="icon">
+    <header className="summary">
+      <article className="summary__icon">
         {getIcon(weather.icon)}
-      </div>
-      <div className="condition"> 
-        <div className="overline">
+      </article>
+      <article className="summary__condition"> 
+        <div className="summary__overline summary__overline--status">
           <div>
             {weather.status} 
           </div>
@@ -22,20 +22,20 @@ const Summary = ({ weather, cityName }) => {
             {toCelsius(weather.tempMax)} / {toCelsius(weather.tempMin)}
           </div>
         </div>
-        <div className="temperature">
+        <div className="summary__condition__temperature">
           {toCelsius(weather.temp)}
         </div>    
-      </div>
-      <div className="city"> 
-        <div className="overline">
+      </article>
+      <article> 
+        <div className="summary__overline">
           {cityName}
         </div>
-        <div className="date">
+        <div className="summary__date">
           {date.format('dddd')}<br />
           {date.format('D. MMMM')}
         </div>
-      </div>
-    </main>);
+      </article>
+    </header>);
 };
 
 Summary.propTypes = {

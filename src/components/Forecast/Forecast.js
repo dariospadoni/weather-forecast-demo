@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import './Forecast.scss';
-import getIcon from '../Icons';
+import getIcon from '../WeatherIcons';
 import { toCelsius } from '../../utils';
 
 
