@@ -3,6 +3,8 @@ import { render } from '@testing-library/react';
 import LoadingSpinner from './LoadingSpinner';
  
 it('renders correctly', () => {
-  const component = render(<LoadingSpinner />);
-  expect(component).toMatchSnapshot();
+  const { container, getByText } = render(<LoadingSpinner />);
+  const loadingText = getByText(/Loading…/);
+  expect(loadingText).toBeInTheDocument();
+  expect(container).toMatchSnapshot();
 });
