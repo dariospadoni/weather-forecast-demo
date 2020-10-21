@@ -9,7 +9,6 @@ const getIcon = iconCode => {
 			Here there would be other mapping between icon returned by the API and local icons
 		*/ 
 		default:
-			console.log('default');
 			return <SunIcon />;
 	}
 }

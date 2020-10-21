@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ForecastCard from './components/ForecastCard/ForecastCard';
 import Summary from './components/Summary/Summary';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
-import './App.css';
+import './App.scss';
 
 /* using some public proxy to avoid CORS issues */
 const WEATHER_DATA_URL = 'https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/forecast?q=M%C3%BCnchen,DE&appid=b6907d289e10d714a6e88b30761fae22';
@@ -51,18 +51,20 @@ function App() {
         
         <Summary weather={summary} cityName={city.name} />
         
-        <ul className="forecastsList">
-          {forecasts.map((d) =>
-            <li key={d.dt} onClick={() => selectForecast(d)}  > 
-              <ForecastCard
-                selected={selectedForecast === d.dt}
-                temperature={d.main.temp}
-                date={new Date(d.dt_txt)} 
-                icon={d.weather[0].icon} 
-              />
-            </li>)
-          }
-        </ul>
+        <section>
+          <ul className="forecastsList">
+            {forecasts.map((d) =>
+              <li key={d.dt} onClick={() => selectForecast(d)}  > 
+                <ForecastCard
+                  selected={selectedForecast === d.dt}
+                  temperature={d.main.temp}
+                  date={new Date(d.dt_txt)} 
+                  icon={d.weather[0].icon} 
+                />
+              </li>)
+            }
+          </ul>
+        </section>
       </>}
 
     </div>
