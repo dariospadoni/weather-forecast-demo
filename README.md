@@ -29,12 +29,11 @@ Launches the test runner in the interactive watch mode.<br />
 
 ## Some notes about the project
 
- 
 * I used a public proxy from Heroku to fetch the static data and avoid CORS issue
 
 * The design on Figma covers only large screens; I adapted it for medium and small displays
 
 * I only used the sun icon though some forecasts needed a different one; `WeatherIcons.js` makes easy to add svg icons and map them to the forecast
 
-  
+* I used momentjs for formatting dates. If bundle size was an issue, this dependency could be removed and replaced with javascript Date object methods
    
