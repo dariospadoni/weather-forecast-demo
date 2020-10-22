@@ -27,7 +27,7 @@ In the project directory, you can run:
 Launches the test runner in the interactive watch mode.<br />
 
 
-## Some notes about the project
+## Some notes about the implementation
 
 * I used a public proxy from Heroku to fetch the static data and avoid CORS issue
 
